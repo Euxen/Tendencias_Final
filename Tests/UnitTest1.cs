@@ -40,7 +40,7 @@ namespace tendencias_lab_final
         [Test]
         public void Test1N_Cannot_take_negative_exponent()
         {
-            //Cannot happen due to negative exponents and so must give you a 0
+            
             Assert.AreEqual(Class.Calculator.Potencia(2,-2), 10); 
         }
 
