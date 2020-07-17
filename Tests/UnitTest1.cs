@@ -41,7 +41,7 @@ namespace tendencias_lab_final
         public void Test1N_Cannot_take_negative_exponent()
         {
             //Cannot happen due to negative exponents and so must give you a 0
-            Assert.AreEqual(Class.Calculator.Potencia(2,-2), 0); 
+            Assert.AreEqual(Class.Calculator.Potencia(2,-2), 10); 
         }
 
         [Test]
@@ -49,15 +49,22 @@ namespace tendencias_lab_final
         {
             //Cannot overflow
             int max = int.MaxValue;
-            Assert.AreEqual(Class.Calculator.Potencia(max + 1,2), 0); 
+            Assert.AreEqual(Class.Calculator.Potencia(max + 1, 2), 20); 
         }
 
         [Test]
-        public void Test3N_Avoid_overflow_as_result_of_calculation()
+        public void Test3N_Avoid_overflow_as_result_of_exponent_that_is_too_big()
         {
             //Cannot overflow
             int max = int.MaxValue;
-            Assert.AreEqual(Class.Calculator.Potencia(2,max), 0); 
+            Assert.AreEqual(Class.Calculator.Potencia(2,max + 1), 30); 
+        }
+
+        [Test]
+        public void Test4N_Cannot_take_strings()
+        {
+            //Cannot take more or less than 2 arguments
+            Assert.AreEqual(Class.Calculator.Potencia("string",0), 40); 
         }
     }
 }
