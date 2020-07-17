@@ -36,5 +36,28 @@ namespace tendencias_lab_final
             //Can take negative bases and should return negative number
             Assert.AreEqual(Class.Calculator.Potencia(-2,3), -8); 
         }
+
+        [Test]
+        public void Test1N_Cannot_take_negative_exponent()
+        {
+            //Cannot happen due to negative exponents and so must give you a 0
+            Assert.AreEqual(Class.Calculator.Potencia(2,-2), 0); 
+        }
+
+        [Test]
+        public void Test2N_Cannot_take_a_base_over_int_max_value()
+        {
+            //Cannot overflow
+            int max = int.MaxValue;
+            Assert.AreEqual(Class.Calculator.Potencia(max + 1,2), 0); 
+        }
+
+        [Test]
+        public void Test3N_Avoid_overflow_as_result_of_calculation()
+        {
+            //Cannot overflow
+            int max = int.MaxValue;
+            Assert.AreEqual(Class.Calculator.Potencia(2,max), 0); 
+        }
     }
 }
